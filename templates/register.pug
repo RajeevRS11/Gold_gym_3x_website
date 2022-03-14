@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Register
+style
+    include style.css
+body
+    include layouts/nav.pug
+    section#bodySection
+        h1.h-primary.center Gold Fitness Point
+        
+        
+        div#contacts
+            nav#navbar  
+                ul 
+                    li: a(href='/login') LOGIN
+                    li: a(href='/register') REGISTER
+            h3.p-primary.center USER REGISTRATION
+            form(action=" " method="post" enctype="multipart/form-data")
+                div.contact-form
+                    input(type="text" name="name" placeholder="Enter your name" required)
+
+                div.contact-form
+                    input(type="text" name="email" placeholder="Enter your email" required)
+
+                div.contact-form    
+                    input(type="number" name="mobile" placeholder="Enter mobile number" required)
+
+                div.contact-form
+                    input(type="file" name="image" required)
+
+                div.contact-form
+                    input(type="password" name="password" placeholder="Enter your password" required)
+            
+                button.btn.center REGISTER
+                br
+                br
+                p(style="color:green; text-shaddow:2px 2px 2px yellow; font-weight:bold") #{message}
+            
+                p(style="color:red; text-shaddow:2px 2px 2px yellow; font-weight:bold") #{message1}
+
+

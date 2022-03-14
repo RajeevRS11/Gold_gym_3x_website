@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Login 
+style
+    include style.css
+body
+    include layouts/nav.pug
+    section#bodySection
+        h1.h-primary.center Gold Fitness Point
+        
+        
+        div#contacts
+            nav#navbar  
+                ul 
+                    li: a(href='/login') LOGIN
+                    li: a(href='/register') REGISTER
+            h3.p-primary.center USER LOGIN
+            form(action="/login" method="post")
+                div.contact-form
+                    input(type="text" name="email" placeholder="Enter your email" required)
+
+                div.contact-form
+                    input(type="password" name="password" placeholder="Enter password" required)
+
+           
+            
+                button.btn.center LOGIN
+                br
+                br
+                p(style="color:white; ; font-weight:bold") #{message}
+
+            
+
+
+    
+
+
+

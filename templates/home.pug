@@ -1,0 +1,55 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title home
+style
+    include style.css
+body
+    nav#navbar 
+        div#log 
+            img(src='/static/images/dumble2.jpg')
+        ul 
+            li: a(href='/home') HOME 
+            li: a(href='/logout') LOGOUT
+    
+    section#bodySection
+        h1.h-primary.center Gold Fitness Point
+        h2.h-secondary.center Hi #{user.name} Enjoy Our Services
+        div#services
+            div.services-box
+                img(src="/static/images/yoga.png")
+                h2.h-secondary.center Meditation
+                ul.p-secondary
+                    li Building skills to manage your stress.
+                    li Increasing self-awareness.
+                    li Focusing on the present.
+                    li Reducing negative emotions.
+               
+            div.services-box
+                img(src="/static/images/cycle1.png")
+                h2.h-secondary.center Cycling Studio
+                ul.p-secondary
+                    li Increased cardiovascular fitness.
+                    li Strengthened bones.
+                    li Decreased stress levels.
+                    li Improved joint mobility..
+                    li Decreased body fat levels.
+                    li Improved posture and coordination.
+                    li Increased muscle strength and flexibility.
+              
+            div.services-box
+                img(src="/static/images/strength.png")
+                h2.h-secondary.center Strength 
+                ul.p-secondary
+                    li Building muscles strong.
+                    li Increasing self-confidence.
+                    li Boosts metabolic rate.
+                    li Increase diet so muscles get more nutrition.
+               
+
+
+    footer
+        p.center Copy right &copy All right reserved ! www.goldFitnessPoint.com
