@@ -27,8 +27,7 @@ const sendVerifyMail = async(name, email, user_id)=>{
             auth:{
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD
-                // user:'rs.pharma11@gmail.com',
-                // pass:'jocdzzhbjfzdzwro' //app password
+               
             }
         });
         const mailOptions = {
