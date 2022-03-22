@@ -34,7 +34,8 @@ const sendVerifyMail = async(name, email, user_id)=>{
             from:'rs.pharma11@gmail.com',
             to: email,
             subject: 'For verification mail',
-            html:`<p>Hii ${name} please click here to <a href ="http://127.0.0.1:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`
+            // html:`<p>Hii ${name} please click here to <a href ="http://127.0.0.1:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`
+            html:`<p>Hii ${name} please click here to <a href ="http://${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`
 
         }
         transporter.sendMail(mailOptions, (error, info)=>{
