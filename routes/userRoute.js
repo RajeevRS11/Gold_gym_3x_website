@@ -12,7 +12,7 @@ userRoute.use(bodyParser.json());
 userRoute.use(bodyParser.urlencoded({extended:true}));
 
 userRoute.set('view engine', 'pug');
-userRoute.set('views','./templates');
+userRoute.set('views', path.join(__dirname, '../templates'));
 userRoute.use('/static', express.static('public'));
 
 const multer = require('multer');
