@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_URL);
 
 
-// port = process.env.PORT;
-localhost = '127.0.0.1';
+port = process.env.PORT;
+// localhost = '127.0.0.1';
 
 const express = require('express');
 const app = express();

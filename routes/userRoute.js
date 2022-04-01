@@ -1,6 +1,7 @@
 const express = require('express');
 const userRoute = express();
 const session = require('express-session');
+const path = require('path');
 
 const config = require('../config/config');
 userRoute.use(session({secret:config.sessionSecret, resave:true, saveUninitialized:true}));
@@ -12,11 +13,10 @@ userRoute.use(bodyParser.json());
 userRoute.use(bodyParser.urlencoded({extended:true}));
 
 userRoute.set('view engine', 'pug');
-userRoute.set('views','./templates');
+userRoute.set('views', path.join(__dirname, '../templates'));
 userRoute.use('/static', express.static('public'));
 
 const multer = require('multer');
-const path = require('path');
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null, path.join(__dirname, '../public/userImages'));
