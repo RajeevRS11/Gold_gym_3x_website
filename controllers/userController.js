@@ -13,7 +13,6 @@ const securePassword = async (password) => {
   }
 };
 //for sending mail
-const sendVerifyMail = async (name, email, user_id) => {
   try {
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -29,8 +28,8 @@ const sendVerifyMail = async (name, email, user_id) => {
       from: 'rs.pharma11@gmail.com',
       to: email,
       subject: 'For verification mail',
-      html: `<p>Hii ${name} please click here to <a href ="http://localhost:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`,
-      //   html: `<p>Hii ${name} please click here to <a href ="https://gold-fitness-point-testing.herokuapp.com:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`,
+      // html: `<p>Hii ${name} please click here to <a href ="http://localhost:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`,
+        html: `<p>Hii ${name} please click here to <a href ="https://gold-fitness-point-testing.herokuapp.com:${process.env.PORT}/verify?id=${user_id}"> Verify </a> your mail.</p>`,
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -44,45 +43,6 @@ const sendVerifyMail = async (name, email, user_id) => {
   }
 };
 // ----------------------
-
-const loadRegister = async (req, res) => {
-  try {
-    res.render('register.pug');
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-const insertUser = async (req, res) => {
-  try {
-    const spassword = await securePassword(req.body.password);
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      mobile: req.body.mobile,
-      image: req.file.filename,
-      password: spassword,
-      is_admin: 0,
-    });
-    const userData = await user.save();
-    if (userData) {
-      sendVerifyMail(req.body.name, req.body.email, userData._id); //email
-      res.render('register', {
-        message:
-          'You have been successfully registered. Please verify your email.',
-      });
-    } else {
-      res.render('register', { message: 'Registration Uncessfull' });
-    }
-  } catch (error) {
-    // res.send(error.message)
-    // res.send(`Registration  failed. \n The email or phone you are trying is already registered. \n Try a new one.`)
-    res.render('register', {
-      message1: `Registration  failed. \n The email or phone you are trying is already registered. \n Try a new one.`,
-    });
-  }
-};
-const verifyMail = async (req, res) => {
   try {
     const updateInfo = await User.updateOne(
       { _id: req.query.id },
